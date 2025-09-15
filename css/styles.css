@@ -1185,4 +1185,52 @@ body {
     .galeria-overlay {
         padding: 0.5rem;
     }
+    
+    /* ===== MODAL RESPONSIVE ===== */
+    .modal-content {
+        margin: 0;
+        max-width: 100%;
+        max-height: 100%;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--spacing-sm);
+        box-sizing: border-box;
+    }
+    
+    .modal-image {
+        max-width: calc(100vw - 2rem);
+        max-height: calc(100vh - 4rem);
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+    
+    .modal-close {
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+        font-size: 1.8rem;
+        z-index: 2001;
+        background: rgba(0, 0, 0, 0.5);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .modal-navigation {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .modal-prev,
+    .modal-next {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
 }
