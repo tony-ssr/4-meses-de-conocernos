@@ -224,7 +224,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--spacing-xl) 0;
+    /* Añadiendo padding-top para compensar la navegación fija */
+    padding: calc(var(--spacing-xl) + 80px) 0 var(--spacing-xl) 0;
     position: relative;
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
 }
@@ -663,10 +664,15 @@ body {
         --spacing-lg: 2rem;
     }
     
+    /* Ajustando la navegación para pantallas medianas */
+    .navbar {
+        padding: var(--spacing-xs) 0;
+    }
+    
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 70px;
+        top: 60px; /* Reduciendo la altura del top para mejor ajuste */
         flex-direction: column;
         background: var(--color-white);
         width: 100%;
@@ -694,6 +700,12 @@ body {
     
     .hamburger.active span:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    /* Ajustando el hero para pantallas medianas */
+    .hero {
+        /* Reduciendo el padding-top para tablets */
+        padding: calc(var(--spacing-xl) + 60px) 0 var(--spacing-xl) 0;
     }
     
     .hero-content {
@@ -726,6 +738,22 @@ body {
     :root {
         --spacing-xl: 2rem;
         --spacing-lg: 1.5rem;
+    }
+    
+    /* Ajustando la navegación para móviles */
+    .navbar {
+        padding: 0.5rem 0; /* Padding más pequeño para móviles */
+    }
+    
+    .nav-menu {
+        top: 50px; /* Altura reducida para móviles */
+    }
+    
+    /* Ajustando el hero para móviles */
+    .hero {
+        /* Padding-top más pequeño para móviles */
+        padding: calc(var(--spacing-xl) + 50px) 0 var(--spacing-xl) 0;
+        min-height: 100vh; /* Asegurando altura mínima completa */
     }
     
     .container {
