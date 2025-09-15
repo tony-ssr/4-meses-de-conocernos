@@ -16,6 +16,7 @@ let currentGalleryType = 'galeria'; // 'galeria' o 'melody'
 let galleryImages = [];
 let melodyImages = [];
 let isModalOpen = false;
+let personalMessages = []; // Array para almacenar los mensajes personalizados
 
 // ===== CONFIGURACIÓN DE IMÁGENES =====
 const imageConfig = {
@@ -53,20 +54,72 @@ const imageConfig = {
 
 // ===== INICIALIZACIÓN =====
 document.addEventListener('DOMContentLoaded', function() {
-    try {
-        console.log('🖼️ Inicializando galerías...');
-        
-        // Inicializar galerías
+    console.log('🎀 Inicializando galería de Mariangel...');
+    
+    // Cargar mensajes personalizados primero
+    loadPersonalMessages().then(() => {
+        // Inicializar galerías después de cargar los mensajes
         initGallery();
         initMelodyGallery();
         initModal();
-        
-        console.log('✨ Galerías inicializadas correctamente');
-    } catch (error) {
-        console.error('❌ Error al inicializar galerías:', error);
-        showGalleryError('Error al cargar las galerías de imágenes');
-    }
+    }).catch(error => {
+        console.error('❌ Error al cargar mensajes:', error);
+        // Inicializar galerías sin mensajes si hay error
+        initGallery();
+        initMelodyGallery();
+        initModal();
+    });
 });
+
+// ===== CARGA DE MENSAJES PERSONALIZADOS =====
+async function loadPersonalMessages() {
+    try {
+        console.log('📝 Cargando mensajes personalizados...');
+        
+        // Cargar el archivo de mensajes
+        const response = await fetch('Content/mensajes 15 fotos/mensajes para cada foto de ella.txt');
+        
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+        
+        const text = await response.text();
+        
+        // Procesar el texto línea por línea
+        personalMessages = text.split('\n')
+            .map(line => line.trim())
+            .filter(line => line.length > 0)
+            .map(line => {
+                // Remover el número al inicio si existe (ej: "1. Mensaje" -> "Mensaje")
+                return line.replace(/^\d+\.\s*/, '');
+            });
+        
+        console.log(`✨ ${personalMessages.length} mensajes cargados correctamente`);
+        return personalMessages;
+        
+    } catch (error) {
+        console.error('❌ Error al cargar mensajes personalizados:', error);
+        // Mensajes de respaldo en caso de error
+        personalMessages = [
+            'Mi niña hermosa ♡',
+            'Eres increíble, mi amor',
+            'Tu sonrisa ilumina mi día',
+            'Contigo todo es mejor',
+            'Eres mi persona favorita',
+            'Tu belleza es única',
+            'Me haces muy feliz',
+            'Eres perfecta como eres',
+            'Mi corazón es tuyo',
+            'Eres mi inspiración',
+            'Te quiero muchísimo',
+            'Eres mi tesoro',
+            'Mi amor por ti crece cada día',
+            'Eres mi mundo entero',
+            'Te amo, Mariangel ♡'
+        ];
+        return personalMessages;
+    }
+}
 
 // ===== INICIALIZACIÓN DE GALERÍA PRINCIPAL =====
 function initGallery() {
@@ -147,9 +200,26 @@ function createGalleryItems(container, images, type) {
             img.className = 'lazy-image';
             img.loading = 'lazy';
             
-            // Crear overlay para hover
+            // Crear overlay para hover con mensaje personalizado (solo para galería principal)
             const overlay = document.createElement('div');
             overlay.className = type === 'galeria' ? 'galeria-overlay' : 'melody-overlay';
+            
+            // Agregar mensaje personalizado si es la galería principal y hay mensajes disponibles
+            if (type === 'galeria' && personalMessages && personalMessages[index]) {
+                const messageElement = document.createElement('div');
+                messageElement.className = 'galeria-message';
+                messageElement.textContent = personalMessages[index];
+                overlay.appendChild(messageElement);
+                
+                // Agregar corazón decorativo
+                const heartElement = document.createElement('div');
+                heartElement.className = 'galeria-heart';
+                heartElement.innerHTML = '♡';
+                overlay.appendChild(heartElement);
+            } else if (type === 'melody') {
+                // Para My Melody, mantener el corazón original
+                overlay.innerHTML = '';
+            }
             
             // Agregar evento de click
             item.addEventListener('click', function() {
