@@ -63,6 +63,7 @@
     </section>
 
     <!-- Sección Carta -->
+    <!-- Sección Carta con Sobre Interactivo -->
     <section id="carta" class="carta-section">
         <div class="container">
             <div class="section-header">
@@ -70,62 +71,115 @@
                 <div class="title-decoration"></div>
             </div>
             
-            <div class="carta-container">
-                <div class="carta-paper">
-                    <div class="paper-decoration"></div>
-                    <div class="carta-content">
-                        <p class="carta-greeting">Querida Mariangel, mi amor,</p>
-                        
-                        <p class="carta-paragraph">
-                            Hoy, 15 de septiembre de 2025, celebramos cuatro meses desde que nos conocimos, 
-                            un tiempo que se ha convertido en una parte invaluable y maravillosa de mi vida. 
-                            Desde el primer momento, fuiste una revelación, y cada día a tu lado me ha hecho 
-                            sentir que estamos construyendo algo verdaderamente especial.
-                        </p>
-                        
-                        <p class="carta-paragraph">
-                            Mariangel, eres una persona increíblemente importante y especial para mí. Contigo 
-                            he encontrado una calma y una autenticidad que no creí posibles. Me encanta la 
-                            facilidad con la que conectamos, cómo podemos hablar de todo y de nada, y cómo 
-                            siempre me haces reír. Tu presencia me brinda una paz inmensa, y cada momento 
-                            que compartimos es un tesoro.
-                        </p>
-                        
-                        <p class="carta-paragraph">
-                            Admiro profundamente tu inteligencia y dedicación, tu resiliencia y persistencia. 
-                            Me llena de orgullo verte tan contenta y persiguiendo tus ideales. Realmente eres 
-                            "super increíble", y me haces sentir bonito y seguro. Me encanta darte afecto y 
-                            recibirlo de ti, y siempre quiero asegurarme de que te sientas querida, respetada 
-                            y valorada.
-                        </p>
-                        
-                        <p class="carta-paragraph">
-                            Conocerte ha sido una de las cosas más bonitas que me ha pasado este año, y lo 
-                            que siento por ti ha crecido más allá de cualquier expectativa. Ya no me conformo 
-                            con menos, porque lo que tenemos es mucho más profundo. Quiero que sepas que estoy 
-                            aquí para ti, que nuestra conexión es única, y que estamos "en la misma página", 
-                            siendo "dos, pero a la vez uno".
-                        </p>
-                        
-                        <p class="carta-paragraph">
-                            Quiero que continuemos escribiendo nuestra historia juntos. Estoy emocionado por 
-                            caminar a tu lado y por todo lo que el futuro nos depara. Estoy dispuesto a asumir 
-                            el riesgo de quererte y a seguir descubriendo cada parte de ti.
-                        </p>
-                        
-                        <p class="carta-paragraph">
-                            Gracias por permitirme entrar en tu vida, por abrir tu corazón, y por ser tú. 
-                            Eres suficiente y mereces todo el amor del mundo.
-                        </p>
-                        
-                        <p class="carta-closing">
-                            Te quiero muchísimo, Mariangel.
-                        </p>
-                        
-                        <p class="carta-signature">
-                            Con todo mi amor,<br>
-                            <strong>Antony.</strong>
-                        </p>
+            <!-- Contenedor principal del sobre y carta -->
+            <div class="envelope-container">
+                
+                <!-- Corazones flotantes decorativos alrededor del sobre -->
+                <div class="floating-hearts">
+                    <span class="heart heart-1">💕</span>
+                    <span class="heart heart-2">💖</span>
+                    <span class="heart heart-3">💗</span>
+                    <span class="heart heart-4">💝</span>
+                    <span class="heart heart-5">💕</span>
+                    <span class="heart heart-6">💖</span>
+                </div>
+                
+                <!-- Sobre cerrado (visible inicialmente) -->
+                <div class="envelope" id="envelope">
+                    <!-- Parte trasera del sobre -->
+                    <div class="envelope-back"></div>
+                    
+                    <!-- Solapa del sobre con decoración -->
+                    <div class="envelope-flap">
+                    </div>
+                    
+                    <!-- Frente del sobre con dirección -->
+                    <div class="envelope-front">
+                        <div class="envelope-address">
+                            <p class="address-to">Para: <span class="name-highlight">Mariangel</span></p>
+                            <p class="address-from">De: <span class="name-highlight">Antony</span> 💕</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Sello del sobre (fuera de la solapa para máxima visibilidad) -->
+                    <div class="envelope-seal">
+                        <span class="seal-heart">💕</span>
+                    </div>
+                    
+                    <!-- Instrucción para abrir -->
+                    <div class="open-instruction">
+                        <p>✨ Haz clic para abrir la carta ✨</p>
+                        <div class="click-indicator">👆</div>
+                    </div>
+                </div>
+                
+                <!-- Carta abierta (oculta inicialmente) -->
+                <div class="carta-container" id="carta-content" style="display: none;">
+                    <div class="carta-paper">
+                        <div class="paper-decoration"></div>
+                        <div class="carta-content">
+                            <p class="carta-greeting">Querida Mariangel, mi amor,</p>
+                            
+                            <p class="carta-paragraph">
+                                Hoy, 15 de septiembre de 2025, celebramos cuatro meses desde que nos conocimos, 
+                                un tiempo que se ha convertido en una parte invaluable y maravillosa de mi vida. 
+                                Desde el primer momento, fuiste una revelación, y cada día a tu lado me ha hecho 
+                                sentir que estamos construyendo algo verdaderamente especial.
+                            </p>
+                            
+                            <p class="carta-paragraph">
+                                Mariangel, eres una persona increíblemente importante y especial para mí. Contigo 
+                                he encontrado una calma y una autenticidad que no creí posibles. Me encanta la 
+                                facilidad con la que conectamos, cómo podemos hablar de todo y de nada, y cómo 
+                                siempre me haces reír. Tu presencia me brinda una paz inmensa, y cada momento 
+                                que compartimos es un tesoro.
+                            </p>
+                            
+                            <p class="carta-paragraph">
+                                Admiro profundamente tu inteligencia y dedicación, tu resiliencia y persistencia. 
+                                Me llena de orgullo verte tan contenta y persiguiendo tus ideales. Realmente eres 
+                                "super increíble", y me haces sentir bonito y seguro. Me encanta darte afecto y 
+                                recibirlo de ti, y siempre quiero asegurarme de que te sientas querida, respetada 
+                                y valorada.
+                            </p>
+                            
+                            <p class="carta-paragraph">
+                                Conocerte ha sido una de las cosas más bonitas que me ha pasado este año, y lo 
+                                que siento por ti ha crecido más allá de cualquier expectativa. Ya no me conformo 
+                                con menos, porque lo que tenemos es mucho más profundo. Quiero que sepas que estoy 
+                                aquí para ti, que nuestra conexión es única, y que estamos "en la misma página", 
+                                siendo "dos, pero a la vez uno".
+                            </p>
+                            
+                            <p class="carta-paragraph">
+                                Quiero que continuemos escribiendo nuestra historia juntos. Estoy emocionado por 
+                                caminar a tu lado y por todo lo que el futuro nos depara. Estoy dispuesto a asumir 
+                                el riesgo de quererte y a seguir descubriendo cada parte de ti.
+                            </p>
+                            
+                            <p class="carta-paragraph">
+                                Gracias por permitirme entrar en tu vida, por abrir tu corazón, y por ser tú. 
+                                Eres suficiente y mereces todo el amor del mundo.
+                            </p>
+                            
+                            <p class="carta-closing">
+                                Te quiero muchísimo, Mariangel.
+                            </p>
+                            
+                            <p class="carta-signature">
+                                Con todo mi amor,<br>
+                                <strong>Antony.</strong>
+                            </p>
+                            
+                            <!-- Botón para cerrar la carta -->
+                            <div class="close-letter-container">
+                                <button class="close-letter-btn" id="close-letter">
+                                    <span class="btn-icon">💕</span>
+                                    Cerrar carta
+                                    <span class="btn-icon">💕</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -191,5 +245,6 @@
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/gallery.js"></script>
+    <script src="js/letter.js"></script>
 </body>
 </html>

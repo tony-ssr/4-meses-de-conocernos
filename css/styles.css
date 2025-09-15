@@ -443,6 +443,215 @@ body {
     margin-top: var(--spacing-md);
 }
 
+/* ===== ESTILOS DEL SOBRE INTERACTIVO ===== */
+
+/* Contenedor principal del sobre y carta */
+.envelope-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    margin: var(--spacing-xl) 0;
+    z-index: 100; /* Z-index alto para el contenedor */
+}
+
+/* Corazones flotantes decorativos */
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Los corazones no interfieren con los clics */
+    z-index: 1;
+}
+
+.heart {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.7;
+    animation: floatHeart 4s ease-in-out infinite;
+}
+
+/* Posicionamiento individual de cada corazón */
+.heart-1 { top: 10%; left: 15%; animation-delay: 0s; }
+.heart-2 { top: 20%; right: 20%; animation-delay: 1s; }
+.heart-3 { bottom: 30%; left: 10%; animation-delay: 2s; }
+.heart-4 { bottom: 15%; right: 15%; animation-delay: 3s; }
+.heart-5 { top: 50%; left: 5%; animation-delay: 0.5s; }
+.heart-6 { top: 40%; right: 8%; animation-delay: 2.5s; }
+
+/* Animación de flotación para los corazones */
+@keyframes floatHeart {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+        opacity: 0.7; 
+    }
+    50% { 
+        transform: translateY(-15px) rotate(5deg); 
+        opacity: 1; 
+    }
+}
+
+/* Sobre cerrado - Estructura principal */
+.envelope {
+    position: relative;
+    width: 400px;
+    height: 280px;
+    cursor: pointer;
+    transition: var(--transition-medium);
+    z-index: 2;
+    margin: 0 auto;
+}
+
+.envelope:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 10px 20px rgba(227, 106, 165, 0.3));
+}
+
+/* Parte trasera del sobre */
+.envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-white) 0%, #f8f8f8 100%);
+    border: 3px solid var(--color-primary);
+    border-radius: 8px;
+    box-shadow: var(--shadow-medium);
+}
+
+/* Solapa del sobre */
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45%; /* Altura reducida para evitar superposición */
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 85%); /* Forma triangular ajustada */
+    border-radius: 8px 8px 0 0;
+    z-index: 1; /* Z-index bajo para que no tape los nombres */
+    transition: var(--transition-medium);
+}
+
+/* Sello del sobre con corazón */
+.envelope-seal {
+    position: absolute;
+    top: 30%; /* Centrado verticalmente entre la solapa y el frente */
+    left: 45%; /* Centrado horizontalmente */
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+    width: 40px;
+    height: 40px;
+    background: var(--color-white);
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Z-index máximo para estar sobre absolutamente todo */
+    animation: heartbeat 2s ease-in-out infinite;
+    box-shadow: 0 2px 8px rgba(227, 106, 165, 0.3); /* Sombra para destacar */
+}
+
+.seal-heart {
+    font-size: 1.2rem;
+    color: var(--color-accent);
+}
+
+/* Frente del sobre con dirección */
+.envelope-front {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: var(--color-white);
+    border: 3px solid var(--color-primary);
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.envelope-address {
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.address-to, .address-from {
+    font-family: var(--font-script);
+    font-size: 1.3rem;
+    margin: var(--spacing-xs) 0;
+    color: var(--color-deep);
+}
+
+.name-highlight {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+/* Instrucciones para abrir el sobre */
+.open-instruction {
+    position: absolute;
+    bottom: -110px; /* Subido para que no quede debajo de la carta */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: var(--color-deep);
+    font-weight: 500;
+    animation: fadeInOut 2s ease-in-out infinite;
+    z-index: 3; /* Z-index alto para asegurar visibilidad */
+}
+
+.click-indicator {
+    font-size: 1.5rem;
+    margin-top: var(--spacing-xs);
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+/* Animación de parpadeo para las instrucciones */
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.7; transform: translateX(-50%) translateY(0px); }
+    50% { opacity: 1; transform: translateX(-50%) translateY(-3px); }
+}
+
+/* Botón para cerrar la carta */
+.close-letter-container {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+    border-top: 2px solid var(--color-primary);
+}
+
+.close-letter-btn {
+    background: linear-gradient(45deg, var(--color-accent), var(--color-highlight));
+    color: var(--color-white);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 25px;
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    margin: 0 auto;
+}
+
+.close-letter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-heavy);
+    background: linear-gradient(45deg, var(--color-highlight), var(--color-deep));
+}
+
+.btn-icon {
+    font-size: 1rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
 /* ===== SECCIÓN GALERÍA ===== */
 .galeria-section {
     padding: var(--spacing-xl) 0;
