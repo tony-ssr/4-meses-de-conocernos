@@ -155,14 +155,12 @@ function handleScroll() {
 
 function updateParallaxEffect(scrollY) {
     try {
-        const heroSection = document.querySelector('.hero');
-        const heroImage = document.querySelector('.hero-melody');
+        // Efecto parallax deshabilitado para la imagen hero para evitar desajustes
+        // La imagen hero ahora permanece fija en su posición
         
-        if (heroSection && heroImage) {
-            const speed = 0.5;
-            const yPos = -(scrollY * speed);
-            heroImage.style.transform = `translateY(${yPos}px) scale(1.1)`;
-        }
+        // Si quieres aplicar parallax a otros elementos, puedes hacerlo aquí
+        // Por ejemplo, para elementos de fondo o decorativos
+        
     } catch (error) {
         console.error('❌ Error en efecto parallax:', error);
     }
