@@ -1,0 +1,205 @@
+# ===== ARCHIVOS DEL SISTEMA =====
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===== EDITORES E IDEs =====
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Atom
+.atom/
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Vim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===== ARCHIVOS DE DESARROLLO =====
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+.pnp.*
+.yarn/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ===== ARCHIVOS TEMPORALES =====
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Archivos temporales
+*.tmp
+*.temp
+*.cache
+.cache/
+.parcel-cache/
+
+# ===== ARCHIVOS DE CONFIGURACIÓN SENSIBLES =====
+# Variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Configuraciones locales
+config.local.js
+config.local.json
+.config/
+
+# ===== ARCHIVOS DE COMPILACIÓN =====
+# Sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# Less
+*.less.map
+
+# ===== ARCHIVOS DE SERVIDOR =====
+# Apache
+.htaccess
+
+# Nginx
+nginx.conf
+
+# ===== ARCHIVOS DE BACKUP =====
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+
+# ===== ARCHIVOS DE DOCUMENTACIÓN TEMPORAL =====
+# Documentación generada
+docs/_build/
+site/
+
+# ===== ARCHIVOS ESPECÍFICOS DEL PROYECTO =====
+# Archivos de prueba locales
+test-local/
+testing/
+*.test.html
+
+# Archivos de desarrollo personal
+notes.txt
+todo.txt
+personal-notes/
+
+# Capturas de pantalla de desarrollo
+screenshots/
+screen-*.png
+screen-*.jpg
+
+# ===== COMENTARIOS =====
+# Este .gitignore está configurado para un proyecto web estático
+# que celebra una ocasión especial. Excluye archivos del sistema,
+# temporales y de desarrollo, pero mantiene todos los assets
+# necesarios para la página web de Mariangel.
+#
+# Archivos importantes que SÍ se incluyen:
+# - index.html
+# - css/styles.css
+# - js/*.js
+# - Content/ (todas las imágenes y carta)
+# - README.md
+# - LICENSE
